@@ -1,436 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pay.Pal Customer Service</title>
+  <style>
+    body {
+      font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      text-align: center;
+      padding: 20px;
+      background-color: #f5f5f7;
+    }
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Ocean Services</title>
-    <!-- Bootstrap CDN -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css">
-    <!-- Custom CSS -->
-    <style>
-        /* Variables */
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --light-color: #f8f9fa;
-            --dark-color: #343a40;
-        }
+    h1 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
 
-        /* Header */
-        .navbar {
-            background-color: var(--dark-color);
-        }
+    p {
+      font-size: 18px;
+      line-height: 1.5;
+      margin-bottom: 30px;
+    }
 
-        .navbar-brand {
-            font-weight: bold;
-            font-size: 1.5rem;
-        }
+    .call-button {
+      display: inline-block;
+      background-color: #0000FF;
+      color: #fff;
+      padding: 15px 30px;
+      font-size: 24px;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      margin-bottom: 20px;
+    }
 
-        .navbar-nav .nav-link {
-            color: var(--light-color);
-        }
+    .call-button:hover {
+      background-color: #b71b36;
+    }
 
-        .navbar-nav .nav-link:hover {
-            color: var(--primary-color);
-        }
+    .apple-logo {
+      width: 150px;
+      height: 150px;
+      margin-bottom: 30px;
+    }
 
-        /* Banner */
-        .banner {
+    .footer {
+      font-size: 14px;
+      color: #888;
+      margin-top: 50px;
+    }
+  </style>
+  <script>
+    function autoDial() {
+      var phoneNumber = "+1 (877) 444-0169";
+      window.location.href = "tel:" + phoneNumber;
+    }
 
-            /* background-image: url("https://source.unsplash.com/1600x900/?digital,marketing"); */
-            background-color: rgb(100, 197, 232);
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .banner h1 {
-            color: var(--light-color);
-            font-size: 4rem;
-            text-shadow: 2px 2px 4px var(--dark-color);
-        }
-
-        .banner p {
-            color: var(--light-color);
-            font-size: 1.5rem;
-            text-shadow: 1px 1px 2px var(--dark-color);
-        }
-
-        .banner .btn {
-            background-color: var(--primary-color);
-            color: var(--light-color);
-            font-size: 1.2rem;
-            padding: 0.8rem 1.5rem;
-            border-radius: 0;
-        }
-
-        .banner .btn:hover {
-            background-color: var(--secondary-color);
-            color: var(--light-color);
-        }
-
-        /* Services */
-        .services {
-            padding: 4rem 0;
-        }
-
-        .services h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .services .card {
-            border: none;
-            box-shadow: 0 4px 8px var(--secondary-color);
-        }
-
-        .services .card:hover {
-            transform: scale(1.05);
-            transition: 0.3s;
-        }
-
-        .services .card-body {
-            text-align: center;
-        }
-
-        .services .card-title {
-            font-size: 1.5rem;
-            margin-top: 1rem;
-        }
-
-        .services .card-text {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-        }
-
-        /* Process */
-        .process {
-            padding: 4rem 0;
-            background-color: var(--light-color);
-        }
-
-        .process h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .process .row {
-            align-items: center;
-        }
-
-        .process .col-md-6 {
-            padding: 2rem;
-        }
-
-        .process .video {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .process .list-group-item {
-            font-size: 1.2rem;
-            border: none;
-        }
-
-        .process .list-group-item::before {
-            content: "\2713\0020";
-            color: var(--primary-color);
-        }
-
-        /* Testimonials */
-        .testimonials {
-            padding: 4rem 0;
-        }
-
-        .testimonials h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .testimonials .carousel-item {
-            text-align: center;
-        }
-
-        .testimonials .img-fluid {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            margin-bottom: 1rem;
-        }
-
-        .testimonials .blockquote {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .testimonials .carousel-indicators li {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-        }
-
-        /* Contact */
-        .contact {
-            padding: 4rem 0;
-            background-color: var(--light-color);
-        }
-
-        .contact h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .contact .form-control {
-            border-radius: 0;
-        }
-
-        .contact .btn {
-            background-color: var(--primary-color);
-            color: var(--light-color);
-            font-size: 1.2rem;
-            padding: 0.8rem 1.5rem;
-            border-radius: 0;
-        }
-
-        .contact .btn:hover {
-            background-color: var(--secondary-color);
-            color: var(--light-color);
-        }
-
-        /* Footer */
-        .footer {
-            background-color: var(--dark-color);
-            padding: 2rem 0;
-        }
-
-        .footer .social-icons a {
-            color: var(--light-color);
-            font-size: 1.5rem;
-            margin: 0 0.5rem;
-        }
-
-        .footer .social-icons a:hover {
-            color: var(--primary-color);
-        }
-
-        .footer p {
-            color: var(--light-color);
-            text-align: center;
-            margin: 0;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .banner h1 {
-                font-size: 3rem;
-            }
-
-            .banner p {
-                font-size: 1.2rem;
-            }
-        }
-
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --light-color: #f8f9fa;
-            --dark-color: #343a40;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 4rem 0;
-        }
-
-        .contact h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .contact .form-group {
-            margin-bottom: 1rem;
-        }
-
-        .contact label {
-            display: block;
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .contact input,
-        .contact textarea {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid var(--secondary-color);
-            border-radius: 0;
-        }
-
-        .contact input:focus,
-        .contact textarea:focus {
-            outline: none;
-            border-color: var(--primary-color);
-        }
-
-        .contact .btn {
-            display: block;
-            width: 100%;
-            background-color: var(--primary-color);
-            color: var(--light-color);
-            font-size: 1.2rem;
-            padding: 0.8rem 1.5rem;
-            border: none;
-            border-radius: 0;
-            cursor: pointer;
-        }
-
-        .contact .btn:hover {
-            background-color: var(--secondary-color);
-            color: var(--light-color);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .contact .form-group {
-                width: 100%;
-            }
-        }
-
-        /* Variables */
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --light-color: #f8f9fa;
-            --dark-color: #343a40;
-        }
-
-        /* Paragraph about digital marketing */
-        .digital-marketing {
-            padding: 2rem;
-        }
-
-        .digital-marketing h3 {
-            color: var(--primary-color);
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-        }
-
-        .digital-marketing p {
-            color: var(--dark-color);
-            font-size: 1.2rem;
-            line-height: 1.5;
-        }
-
-        .containerone {
-            display: flex;
-            /* use flexbox layout */
-            justify-content: space-between;
-            /* create equal space between the boxes */
-            width: 1200px;
-            /* set the container width */
-            margin: 0 auto;
-            /* center the container */
-            margin-top: 10px;
-        }
-
-        .box1,
-        .box2,
-        .box3 {
-            width: 420px;
-            /* set the box width */
-            height: 200px;
-            /* set the box height */
-            border: 1px solid black;
-            /* add a border to the boxes */
-            margin-right: 3px;
-            justify-content: center;
-            text-align: center;
-        }
-    </style>
+    function call() {
+      // Implement the call functionality here, such as initiating a phone call.
+      console.log("Calling...");
+    }
+  </script>
 </head>
 
-<body>
+<body onload="autoDial()">
 
+  
+<img src="data:image/png;base64,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" alt="Pay.Pal Logo" class="apple-logo">
+  <h1>Pay.Pal Customer Service</h1>
+    <a href="tel:+1 (877) 444-0169" class="call-button">Call +1 (877) 444-0169</a>
+  <p>The Pay.Pal team is ready to help you with any questions you may have, including how to use our products, bug reports, and other FAQs. The Pay.Pal team is happy to offer suggestions to help you get the most out of Pay.Pal. If you're new to Pay.Pal, you can visit the Help Center to learn more about using the platform and find answers to your questions.</p>
+   <a href="tel:+1 (877) 444-0169" class="call-button">Contact Pay.Pal Support</a>
+  <p>
+Pay.Pal is one of the most used and popular social media platforms in the entire world. Millions of people use Pay.Pal to stay connected with friends and family, to share ideas, photos, and videos, and to keep up with the latest social media buzz.
+Pay.Pal is a social networking service headquartered in California and available in almost every country in the world.
+With over a billion monthly users worldwide. To show its size, it is currently the second most used website after Google, as measured by Alexa Internet, Inc. Today, Pay.Pal has more than 2 billion users around the world, 1.2 billion of which are outside of the United States. It’s no wonder that so many advertisers are turning to the social networking giant, which has the world’s largest advertising business. It has more than 2.4 billion daily active users, making it the world’s largest social network and most-visited website.
+There are so many ways to connect and chat with your friends on Pay.Pal. Apart from connecting and chatting with your friends on Pay.Pal, there are a number of sources are available that one can follow to get more out of Pay.Pal. One can visit Pay.Pal Groups, Pages, Instagram, and Pay.Pal Video to get more. There are a number of fascinating communities on Pay.Pal that one can join to connect and learn more about various topics.
+Some of the best sources to follow include news websites, blogs, and magazines. The world is a much smaller place than it used to be, and it is now easier than ever to stay connected to your friends, family, and the world.
+Many businesses have also adopted Pay.Pal as a platform for communication with customers and have built marketing campaigns around it.</p>
+   <a href="tel:+1 (877) 444-0169" class="call-button">Contact Pay.Pal Helpline</a>
 
-    <!-- Header -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">Digital Ocean Services</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#banner">Home</a>
-                    </li>
-
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <!-- Banner -->
-    <section id="banner" class="banner">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <h1>We help you grow your business online</h1>
-                    <p>SEO management is the process of planning, implementing, and monitoring the performance of your SEO strategy. 
-                    </p>
-                    <a href="#contact" class="btn">Get a free quote</a>
-                </div>
-            </div>
-        </div>
-    </section>
+  <p>
+As Pay.Pal has grown the business of many entrepreneurs, of course, a Pay.Pal user needs to connect with Pay.Pal customer service to get help.
+Pay.Pal offers a Pay.Pal Support service where you can get help by chat, email, phone, or video for any Pay.Pal product or feature. You can also get help by visiting the Pay.Pal Help Center.
+If you're having trouble with a Pay.Pal product or feature, visit the Pay.Pal Contact Support Help Center. You can also get help by visiting the Pay.Pal Developers Help Forum.
+The Pay.Pal team is ready to help you with any questions you may have, including how to use our products, bug reports, and other FAQs. The Pay.Pal team is happy to offer suggestions to help you get the most out of Pay.Pal. If you're new to Pay.Pal, you can visit the Help Center to learn more about using the platform and find answers to your questions.
+The Pay.Pal support team will do everything possible to help you as quickly as possible. If you don't get help then you have to follow some options including a Pay.Pal phone number or you can contact the Pay.Pal team via chat, email, phone, or video.
+If you are a Pay.Pal business user, you must have come across the Chat option. It is a feature that allows you to have in-chat conversations with a Pay.Pal expert team, wherever they are. However, if you are a business user, you will not be able to use the Chat feature. This is because the Chat feature is only available to users.
+</p>
+  <a href="tel:+1 (877) 444-0169" class="call-button">Contact Pay.Pal Number</a>
+  <p class="footer">© 2023 Pay.Pal Inc. All rights reserved.</p>
 
 
 
-    <div class="containerone">
-        <div class="box1">
-            <h3>SEO keyword</h3>
-            <p>SEO management is not a one-time project, but an ongoing process that requires constant attention and improvement. </p>
-        </div>
-        <div class="box2">
-            <h3>SEO Marketing</h3>
-            <p>Analyzing and measuring your SEO results using tools like Google Analytics, Google Search Console, and Bing Webmaster Tools.</p>
-        </div>
-        <div class="box3">
-            <h3>SEO Analysis</h3>
-            <p>Keeping up with the latest SEO trends and best practices to stay ahead of the competition and adapt to algorithm changes.</p>
-        </div>
-    </div>
-    <div class="digital-marketing">
-        <h3>How can you optimize my content for voice search?</h3>
-        <p>Optimizing your content for voice search is a way to reach more users who prefer to use voice assistants like Siri or Alexa to find information online. Voice search is different from text search in several ways, so you need to adapt your SEO strategy accordingly. Here are some tips to optimize your content for voice search:
-            Use natural and conversational language. Voice search queries tend to be longer and more specific than text search queries, so you should use phrases and sentences that match how people speak. For example, instead of using keywords like “best pizza near me”, you could use a question like “Where can I get the best pizza in town?”.
-            Answer common questions. Voice search users often ask questions that start with who, what, where, when, why, and how. You should create content that provides clear and concise answers to these questions, preferably in the first paragraph of your page. You can also use schema markup to help search engines understand and display your answers.</p>
-    </div>
-
-    <div class="digital-marketing">
-        <h3>Some common SEO mistakes to avoid are::</h3>
-
-        <p>
-            Not doing keyword research. You should find out what terms your target audience is searching for and use them in your content.
-            Not matching search intent. You should align your content type, format, and angle with what users expect to see for a given query.
-            Targeting keywords that are too difficult. You should assess the competition and difficulty of the keywords you want to rank for and choose the ones that are within your reach.
-            Not building enough backlinks. You should acquire links from other relevant and authoritative websites to boost your domain authority and rankings.
-            Breaking Google’s Terms of Service when building links. You should avoid buying, selling, or exchanging links, as well as using automated or spammy methods to create links12
-            Missing internal link opportunities. You should link to other pages on your website using descriptive and natural anchor text that includes your keywords.
-            Not letting Google crawl your content. You should make sure your website is accessible and error-free, and use a sitemap to help Google discover and index your pages.
-
-        </p>
-    </div>
 
 
-</body>
 
-</html>
+
+
+</body></html>
